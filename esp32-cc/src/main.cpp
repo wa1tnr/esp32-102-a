@@ -1,7 +1,7 @@
 // Fri 18 Nov 11:37:36 UTC 2022
 // +cpl +println
 
-#define NOWDATE "Fri 18 Nov 11:37:36 UTC 2022"
+#define NOWDATE "Fri 18 Nov 14:38:12 UTC 2022"
 
 #include <Arduino.h>
 #include <Adafruit_TestBed.h>
@@ -24,9 +24,21 @@ void cpl() {
 
 #define NEOPIXEL_PIN 0
 
+void setup_af_testbed() {
+    TB.neopixelPin = NEOPIXEL_PIN;
+    TB.neopixelNum = 1; // nothing interesting if not a multi rgb strip
+    TB.begin(); // when this should happen is unexplored
+    TB.setColor(0x140000); // red maybe
+    delay(1250);
+    TB.setColor(0x001400); // green maybe
+    delay(1250);
+    TB.setColor(0x000014); // blue maybe - full monty
+}
+
 void setup_rgb() {
     pinMode(NEOPIXEL_I2C_POWER, OUTPUT);
     digitalWrite(NEOPIXEL_I2C_POWER, HIGH);
+    setup_af_testbed();
 }
 
 void setup_gpio() {
@@ -74,10 +86,7 @@ void setup_serial() {
 #endif
 
     delay(700);
-    crlf
-    crlf
-    crlf
-    crlf
+    crlf crlf crlf crlf
     Serial.println("begin program.");
 }
 
