@@ -17,9 +17,8 @@ void setup_gpio() {
 
 void setup_serial() {
     Serial.begin(115200);
-
     while (!Serial) {
-      ;
+      ; // no new benefit
     }
 
     Serial.println("Hello Arduino!");
