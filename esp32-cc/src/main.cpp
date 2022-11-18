@@ -30,13 +30,13 @@ void cpl() {
 
 void setup_af_testbed() {
     TB.neopixelPin = NEOPIXEL_PIN;
-    TB.neopixelNum = 1; // nothing interesting if not a multi rgb strip
-    TB.begin(); // when this should happen is unexplored
-    TB.setColor(0x140000); // red maybe
+    TB.neopixelNum = 1; // multi-rgb strip dotcom > '1' here
+    TB.begin(); // seems fine right here
+    TB.setColor(0x140000); // red
     delay(1250);
-    TB.setColor(0x001400); // green maybe
+    TB.setColor(0x001400); // green
     delay(1250);
-    TB.setColor(0x000014); // blue maybe - full monty
+    TB.setColor(0x000014); // and blue - full monty
 }
 
 void setup_rgb() {
@@ -57,7 +57,6 @@ void clrSerial() {
     }
 }
 
-
 void signon_msg() {
     // https://docs.platformio.org/en/stable/projectconf/section_env_build.html
     // Serial.println("MYSTRING=<%s>\n", MYSTRING);
@@ -66,18 +65,15 @@ void signon_msg() {
 
 void setup_serial() {
     if (!Serial) {
-        // Serial.begin(115200);
-        Serial.begin(74880);
+        Serial.begin(115200);
+        // Serial.begin(74880);
         clrSerial();
     }
 
 #if 0
-
     while (!Serial) {
       ; // no new benefit
     }
-
-    Serial.println("Hello Arduino!");
 
     bool ser_state = Serial ; // true == connected?
 
@@ -105,12 +101,9 @@ uint8_t wheelColor=0;
 
 void loop(void) {
     Serial.print("  I am looping: efghi ");
-    // Serial.println(NOWDATE);
-    // Serial.println(MYSTRING);
     Serial.println(MYOTHERSTR);
     cpl();
     delay(1000);
-    // while(-1);
 }
 
 // END.
