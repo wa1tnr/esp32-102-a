@@ -99,9 +99,11 @@ void setup(void) {
 
 uint8_t wheelColor=0;
 
-void loop(void) {
-    Serial.print("  I am looping: efghi ");
-    Serial.println(MYOTHERSTR);
+int divider = 0;
+
+void gonePrinting() {
+    Serial.print("  I am looping: fghij ");
+    Serial.print(MYOTHERSTR);
     cpl();
     // wheelColor++;
     // p = (p + 1)& STKMASK; // shattuck
@@ -109,31 +111,28 @@ void loop(void) {
     uint16_t szOfWhColMultpld = sizeof(wheelColor) * 256;
     uint16_t  myResult = szOfWhColMultpld - 1;
 
-    wheelColor =
-        (
-            wheelColor + 1
-    )&  (
-            (
-                szOfWhColMultpld - 1
-            )
+    wheelColor = ( wheelColor + 1)&  (
+            ( szOfWhColMultpld - 1)
         ); // expect this to be 255 (256 - 1 = 255)
 
-    uint8_t tested = 1;
-    int result_of_test = sizeof(tested);
-
-    Serial.print(" sizeof(uint8_t tested) is: ");
-    Serial.println(result_of_test);
-
-    Serial.print("  (sizeof(wheelColor) -1)  is: ");
-    Serial.println(myResult);
-
-    // af: TB.setColor(TB.Wheel(wheelColor++));
-
+    Serial.print("  cw: ");
+    Serial.println(wheelColor);
     TB.setColor(TB.Wheel(wheelColor));
-    Serial.print("   wc: ");
-    Serial.print(wheelColor);
-    Serial.print("   :wc ");
+}
 
+
+bool goprint;
+
+void loop(void) {
+    divider++;
+    if (divider > 27) {
+        divider = 0;
+        goprint = true;
+    }
+    if (goprint == true) {
+        gonePrinting();
+        goprint = false;
+    }
     delay(100);
 }
 
