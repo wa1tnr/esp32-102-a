@@ -1,9 +1,13 @@
-// Fri 18 Nov 11:37:36 UTC 2022
+// Fri 18 Nov 14:58:49 UTC 2022
 // +cpl +println
 
-#define NOWDATE "Fri 18 Nov 14:38:12 UTC 2022"
+#define NOWDATE "Fri 18 Nov 14:58:49 UTC 2022"
 
 #include <Arduino.h>
+// stoalynne coad:
+// https://learn.adafruit.com/adafruit-esp32-feather-v2/factory-reset
+// thanks for the follow
+
 #include <Adafruit_TestBed.h>
 
 extern Adafruit_TestBed TB;
