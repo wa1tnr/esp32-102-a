@@ -12,7 +12,7 @@ void cpl() {
 
 void setup_gpio() {
     pinMode(LED_BUILTIN, OUTPUT);
-    cpl();
+    // cpl();
 }
 
 void setup_serial() {
@@ -40,12 +40,13 @@ void setup_serial() {
 
 void setup(void) {
     delay(700);
-    setup_gpio();
     setup_serial();
+    setup_gpio();
+    delay(700);
 }
 
 void loop(void) {
-    Serial.println("I am looping: cdefg ");
+    Serial.println("  I am looping: cdefg 02:39:30z  ");
     cpl();
     delay(1000);
     // while(-1);
