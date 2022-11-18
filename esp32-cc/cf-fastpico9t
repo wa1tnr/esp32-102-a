@@ -31,7 +31,8 @@ echo "Control \, Control Q to quit"
 echo "Control \, Control S to send a file from the local directory"
 # for escape of control backslash: -e \\
 echo "Good for 9term August 2020"
-picocom -e \\ -f n -p n -d 8 -b 74880 --omap delbs,crlf --send-cmd "ascii-xfr -sn -l 5 -c 1" ${1}
+# picocom -e \\ -f n -p n -d 8 -b 74880 --omap delbs,crlf --send-cmd "ascii-xfr -sn -l 5 -c 1" ${1}
+picocom -e \\ -f n -p n -d 8 -b 115200 --omap delbs,crlf --send-cmd "ascii-xfr -sn -l 5 -c 1" ${1}
 
 exit 0
 
