@@ -39,15 +39,25 @@ void setup_af_testbed() {
     TB.setColor(0x000014); // and blue - full monty
 }
 
+#define USE_RGB
+#undef USE_RGB
+
 void setup_rgb() {
     pinMode(NEOPIXEL_I2C_POWER, OUTPUT);
+#ifdef USE_RGB
     digitalWrite(NEOPIXEL_I2C_POWER, HIGH);
+#endif
+#ifndef USE_RGB
+    digitalWrite(NEOPIXEL_I2C_POWER, LOW); // disable
+#endif
     setup_af_testbed();
 }
 
 void setup_gpio() {
     pinMode(LED_BUILTIN, OUTPUT);
+#ifdef USE_RGB
     setup_rgb();
+#endif
 }
 
 void clrSerial() {
@@ -109,15 +119,16 @@ void gonePrinting() {
     // p = (p + 1)& STKMASK; // shattuck
 
     uint16_t szOfWhColMultpld = sizeof(wheelColor) * 256;
-    uint16_t  myResult = szOfWhColMultpld - 1;
 
     wheelColor = ( wheelColor + 1)&  (
             ( szOfWhColMultpld - 1)
         ); // expect this to be 255 (256 - 1 = 255)
 
-    Serial.print("  cw: ");
+    Serial.print("  icw: ");
     Serial.println(wheelColor);
+#ifdef USE_RGB
     TB.setColor(TB.Wheel(wheelColor));
+#endif
 }
 
 
