@@ -18,6 +18,13 @@ void setup_gpio() {
 void setup_serial() {
     Serial.begin(115200);
 
+    while (!Serial) {
+      ;
+    }
+
+    Serial.println("Hello Arduino!");
+
+#if 0
     bool ser_state = Serial ; // true == connected?
 
     if (ser_state) { // connected?
@@ -26,6 +33,8 @@ void setup_serial() {
     if (!ser_state) {
         Serial.print(" !Serial, rather than Serial "); // this one does not print
     }
+#endif
+
     delay(700);
     Serial.println("begin program.");
 }
