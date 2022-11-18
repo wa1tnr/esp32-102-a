@@ -15,15 +15,27 @@ void setup_gpio() {
     // cpl();
 }
 
+void clrSerial() {
+    int avbl = Serial.available();
+    while (avbl > 0) {
+        char ch = Serial.read(); // flush
+    }
+}
+
 void setup_serial() {
-    Serial.begin(115200);
+    if (!Serial) {
+        Serial.begin(115200);
+        clrSerial();
+    }
+
+#if 0
+
     while (!Serial) {
       ; // no new benefit
     }
 
     Serial.println("Hello Arduino!");
 
-#if 0
     bool ser_state = Serial ; // true == connected?
 
     if (ser_state) { // connected?
