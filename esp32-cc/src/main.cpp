@@ -103,7 +103,38 @@ void loop(void) {
     Serial.print("  I am looping: efghi ");
     Serial.println(MYOTHERSTR);
     cpl();
-    delay(1000);
+    // wheelColor++;
+    // p = (p + 1)& STKMASK; // shattuck
+
+    uint16_t szOfWhColMultpld = sizeof(wheelColor) * 256;
+    uint16_t  myResult = szOfWhColMultpld - 1;
+
+    wheelColor =
+        (
+            wheelColor + 1
+    )&  (
+            (
+                szOfWhColMultpld - 1
+            )
+        ); // expect this to be 255 (256 - 1 = 255)
+
+    uint8_t tested = 1;
+    int result_of_test = sizeof(tested);
+
+    Serial.print(" sizeof(uint8_t tested) is: ");
+    Serial.println(result_of_test);
+
+    Serial.print("  (sizeof(wheelColor) -1)  is: ");
+    Serial.println(myResult);
+
+    // af: TB.setColor(TB.Wheel(wheelColor++));
+
+    TB.setColor(TB.Wheel(wheelColor));
+    Serial.print("   wc: ");
+    Serial.print(wheelColor);
+    Serial.print("   :wc ");
+
+    delay(100);
 }
 
 // END.
