@@ -1,7 +1,7 @@
-// Fri 18 Nov 14:58:49 UTC 2022
+// Sat 19 Nov 00:27:15 UTC 2022
 // +cpl +println
 
-#define NOWDATE "Fri 18 Nov 14:58:49 UTC 2022"
+#define NOWDATE "Sat 19 Nov 00:27:15 UTC 2022"
 
 #include <Arduino.h>
 // stoalynne coad:
@@ -24,6 +24,13 @@ void cpl() {
     bool state = digitalRead(pin);
     state = !state;
     digitalWrite(pin, state);
+}
+
+void blink() {
+    cpl();
+    delay(4);
+    cpl();
+    delay(7000);
 }
 
 #define NEOPIXEL_PIN 0
@@ -55,6 +62,8 @@ void setup_rgb() {
 
 void setup_gpio() {
     pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, 0);
+    delay(220);
 #ifdef USE_RGB
     setup_rgb();
 #endif
@@ -70,7 +79,9 @@ void clrSerial() {
 void signon_msg() {
     // https://docs.platformio.org/en/stable/projectconf/section_env_build.html
     // Serial.println("MYSTRING=<%s>\n", MYSTRING);
-    Serial.println(MYSTRING);
+    Serial.println(MYOTHERSTR);
+    Serial.println("\n");
+    // Serial.println(MYSTRING);
 }
 
 void setup_serial() {
@@ -101,8 +112,8 @@ void setup_serial() {
 }
 
 void setup(void) {
-    delay(700);
     setup_serial();
+    delay(700);
     setup_gpio(); delay(700);
     crlf signon_msg(); delay(700);
 }
@@ -113,10 +124,9 @@ int divider = 0;
 
 void gonePrinting() {
     Serial.print("  I am looping: fghij ");
-    Serial.print(MYOTHERSTR);
+    // Serial.print(MYOTHERSTR);
+    Serial.println(MYSTRING);
     cpl();
-    // wheelColor++;
-    // p = (p + 1)& STKMASK; // shattuck
 
     uint16_t szOfWhColMultpld = sizeof(wheelColor) * 256;
 
@@ -135,6 +145,8 @@ void gonePrinting() {
 bool goprint;
 
 void loop(void) {
+    blink();
+#if 0
     divider++;
     if (divider > 27) {
         divider = 0;
@@ -144,7 +156,8 @@ void loop(void) {
         gonePrinting();
         goprint = false;
     }
-    delay(100);
+    // delay(100);
+#endif
 }
 
 // END.
