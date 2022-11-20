@@ -87,6 +87,7 @@ void signon_msg() {
 void setup_serial() {
     if (!Serial) {
         Serial.begin(115200);
+        // Serial.begin(76600);
         // Serial.begin(74880);
         clrSerial();
     }
