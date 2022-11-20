@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 /*
  * Copyright 2021 Bradley D. Nelson
  *
