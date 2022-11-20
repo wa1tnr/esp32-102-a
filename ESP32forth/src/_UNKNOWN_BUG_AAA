@@ -1,0 +1,14 @@
+Compiling .pio/build/adafruit_feather_esp32_v2/FrameworkArduino/wiring_shift.c.o
+Archiving .pio/build/adafruit_feather_esp32_v2/libFrameworkArduino.a
+Indexing .pio/build/adafruit_feather_esp32_v2/libFrameworkArduino.a
+Linking .pio/build/adafruit_feather_esp32_v2/firmware.elf
+Retrieving maximum program size .pio/build/adafruit_feather_esp32_v2/firmware.elf
+Checking size .pio/build/adafruit_feather_esp32_v2/firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [==        ]  18.3% (used 60000 bytes from 327680 bytes)
+Flash: [==========]  132.8% (used 1741049 bytes from 1310720 bytes)
+Error: The program size (1741049 bytes) is greater than maximum allowed (1310720 bytes)
+*** [checkprogsize] Explicit exit, status 1
+====================================== [FAILED] Took 44.98 seconds ======================================
+make: *** [Makefile:6: all] Error 1
+
