@@ -1,4 +1,4 @@
-#include <Arduino.h>
+// wa1tnr - Sun 20 Nov 20:38:33 UTC 2022
 
 /*
  * Copyright 2021 Bradley D. Nelson
@@ -20,6 +20,16 @@
  * ESP32forth v7.0.6.19
  * Revision: 2f2c3cb9e1f6c128d428
  */
+
+#include <Arduino.h>
+
+/*
+ *   Sun 20 Nov 20:38:33 UTC 2022
+ *
+ *   RAM:   [=         ]  14.3% (used   46980 bytes from  327680 bytes)
+ *   Flash: [========  ]  78.6% (used 1029621 bytes from 1310720 bytes)
+ *
+*/
 
 #define STACK_CELLS 512
 #define INTERRUPT_STACK_CELLS 64
@@ -75,6 +85,7 @@
       defined(CONFIG_BLUEDROID_ENABLED)) || \
      defined(SIM_PRINT_ONLY)
 #  define ENABLE_SERIAL_BLUETOOTH_SUPPORT
+#undef ENABLE_SERIAL_BLUETOOTH_SUPPORT // definitely helped - kludge tnr nov 20 2022
 # endif
 #endif
 
@@ -2884,3 +2895,4 @@ void loop() {
   g_sys.rp = forth_run(g_sys.rp);
 }
 
+// END.
