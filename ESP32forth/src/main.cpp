@@ -1,4 +1,4 @@
-// wa1tnr - Sun 20 Nov 20:38:33 UTC 2022
+// wa1tnr - Sun 20 Nov 21:35:40 UTC 2022
 
 /*
  * Copyright 2021 Bradley D. Nelson
@@ -1469,7 +1469,9 @@ create input-buffer   input-limit allot
 variable boot-prompt
 : free. ( nf nu -- ) 2dup swap . ." free + " . ." used = " 2dup + . ." total ("
                      over + 100 -rot */ n. ." % free)" ;
-: raw-ok   ."  v7.0.6.19 - rev 2f2c3cb9e1f6c128d428" cr
+: raw-ok   ."  v7.0.6.19 - rev 2f2c3cb9e1f6c128d428" cr cr
+           ."  wa1tnr  Sun 20 Nov 21:35:40 UTC 2022" cr cr
+           ."  SAY:    'words'  or  'bye'" cr cr
            boot-prompt @ if boot-prompt @ execute then
            ." Forth dictionary: " remaining used free. cr
            ." 3 x Forth stacks: " 'stack-cells @ cells . ." bytes each" cr
@@ -2264,7 +2266,7 @@ internals definitions also ESP
 only forth definitions
 
 ( Setup entry )
-internals : ok   ." ESP32forth" raw-ok ; forth
+internals : ok   cr ." ESP32forth" raw-ok ; forth
 ( Lazy loaded HTTP Daemon )
 : httpd r|
 
