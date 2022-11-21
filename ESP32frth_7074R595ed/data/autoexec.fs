@@ -1,10 +1,11 @@
-\ ." Mon 21 Nov 15:38:36 UTC 2022"
+\ ." Mon 21 Nov 16:06:31 UTC 2022"
 
 : fvlb space space ." flava bean" ;
-: aexts ." Mon 21 Nov 15:38:36 UTC 2022" ;
+: aexts ." Mon 21 Nov 16:06:31 UTC 2022" ;
+: sayw ."  SAY:    'words'  or  'bye'" ;
 : aexc cr ." This is your spiff - try 'make spiffs' at linux shell (or equivalent) " cr cr
   aexts
-  ."   data/autoexec.fs   mst3k" fvlb cr cr ;
+  ."   data/autoexec.fs   mst3k" fvlb cr cr sayw cr cr ;
 
 \ latest version of the program prints on the following line in the terminal (not here).
 
