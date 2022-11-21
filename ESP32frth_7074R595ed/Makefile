@@ -8,6 +8,12 @@
 all:
 	pio run
 
+devlist:
+	pio device list
+
+# Hardware ID: USB VID:PID=1A86:55D4 SER=54B0005774 LOCATION=2-1.4:1.0
+# Description: USB Single Serial
+
 # https://community.platformio.org/t/i-cannot-figure-out-how-to-upload-a-spiffs-image/6172
 
 spiffs:
