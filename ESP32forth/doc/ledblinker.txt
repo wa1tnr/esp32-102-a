@@ -1,0 +1,7 @@
+ ok
+--> 13 output pinmode
+ ok
+--> high 13 pin
+ ok
+--> low 13 pin
+ ok
