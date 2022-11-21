@@ -1,8 +1,12 @@
-\ Mon 21 Nov 00:57:58 UTC 2022
+\ ." Mon 21 Nov 15:38:36 UTC 2022"
 
 : fvlb space space ." flava bean" ;
-: aexc cr ." This is your spiff - try 'make spiffs' " cr cr
-  ." Sun 20 Nov 22:04:41 UTC 2022   data/autoexec.fs   kelto" fvlb ;
+: aexts ." Mon 21 Nov 15:38:36 UTC 2022" ;
+: aexc cr ." This is your spiff - try 'make spiffs' at linux shell (or equivalent) " cr cr
+  aexts
+  ."   data/autoexec.fs   mst3k" fvlb cr cr ;
+
+\ latest version of the program prints on the following line in the terminal (not here).
 
 : delay 500 * 0 do 1 drop loop ;
 : LEDv2 13 ;

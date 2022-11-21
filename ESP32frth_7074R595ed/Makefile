@@ -2,6 +2,9 @@
 # out of date:
 #     pio project init --board esp32doit-devkit-v1
 
+# latest:
+#     pio project init --board adafruit_feather_esp32_v2
+
 all:
 	pio run
 
