@@ -516,10 +516,13 @@ static cell_t ResizeFile(cell_t fd, cell_t size);
   YV(ESP, getEfuseMac, PUSH (cell_t) ESP.getEfuseMac(); PUSH (cell_t) (ESP.getEfuseMac() >> 32)) \
   YV(ESP, esp_log_level_set, esp_log_level_set(c1, (esp_log_level_t) n0); DROPn(2))
 
+// https://techtutorialsx.com/2017/12/03/esp32-arduino-software-reset/
+
 #define REQUIRED_SYSTEM_SUPPORT \
   X("MS-TICKS", MS_TICKS, PUSH millis()) \
   XV(internals, "RAW-YIELD", RAW_YIELD, yield()) \
-  Y(TERMINATE, exit(n0))
+  Y(TERMINATE, exit(n0)) \
+  Y(RESTART, ESP.restart())
 
 #define REQUIRED_SERIAL_SUPPORT \
   XV(serial, "Serial.begin", SERIAL_BEGIN, Serial.begin(tos); DROP) \
@@ -2674,7 +2677,7 @@ forth definitions
 
 ( Set up Basic I/O )
 internals definitions also serial
-: esp32-bye   0 terminate ;
+: esp32-bye   0 restart ; ( terminate )
 : serial-type ( a n -- ) Serial.write drop ;
 : serial-key ( -- n )
    begin pause Serial.available until 0 >r rp@ 1 Serial.readBytes drop r> ;
