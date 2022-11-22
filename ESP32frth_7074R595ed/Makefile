@@ -8,6 +8,9 @@
 all:
 	pio run
 
+monitor:
+	pio run -t monitor
+
 # https://docs.platformio.org/en/latest/platforms/espressif32.html#erase-flash
 
 erase:
