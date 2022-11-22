@@ -1,4 +1,4 @@
-\ ." Mon 21 Nov 16:17:16 UTC 2022"
+\ ." Tue 22 NOv 21:58:39 UTC 2022"
 
 include bobby.fs
 include cubby.fs
@@ -8,10 +8,12 @@ include roy.fs
 
 : bcr space space bobby 2000 delay
   cubby 2000 delay
-  roy space space cr ;
+  roy 2000 delay space space jerry cr ;
 
 : fvlb space space ." flava bean" ;
-: aexts ." Mon 21 Nov 20:27:21 UTC 2022" ;
+: aexts
+        ." Tue 22 Nov 22:07:11 UTC 2022"
+;
 : sayw ."  SAY:    'words'  or  'bye'" ;
 : aexc cr ." This is your spiff - try 'make spiffs' at linux shell (or equivalent) " cr cr
   aexts
