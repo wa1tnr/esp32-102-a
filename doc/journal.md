@@ -8,9 +8,8 @@ Build wireless two-node net, ESP32.  In Forth,  under Arduino ;)
 
 #### 1. Find equipment
 
-##### Router, power supply, network cable (straight, not crossover)
-
-##### spare host PC (Debian Bullseye, recently updated)
+ * Router, power supply, network cable (straight, not crossover)
+ * spare host PC (Debian Bullseye, recently updated)
 
 
 END.
