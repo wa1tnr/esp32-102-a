@@ -10,6 +10,6 @@ Build wireless two-node net, ESP32.  In Forth,  under Arduino ;)
 
  * Router, power supply, network cable (straight, not crossover)
  * spare host PC (Debian Bullseye, recently updated)
-
+ * reverse engineer router access using second host PC (don't need it to connect elsewhere)
 
 END.
