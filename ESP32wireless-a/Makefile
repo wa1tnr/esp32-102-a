@@ -24,10 +24,22 @@ devlist:
 
 # https://community.platformio.org/t/i-cannot-figure-out-how-to-upload-a-spiffs-image/6172
 
+spiffs: erase
+	@echo HERE IS SPIFFS
+	@sleep 2
+	pio run -t uploadfs
+
+# no spiffs upload before terminal launch:
+nsterm:
+	sleep 2; ./cf-fastpico9t /dev/ttyACM0
+
+term:
+	sleep 2; ./cf-fastpico9t /dev/ttyACM0
+
 upload:
 	pio run -t upload
 
-install: upload
+install: spiffs upload term
 
 clean:
 	pio run -t clean
