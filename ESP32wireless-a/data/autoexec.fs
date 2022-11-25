@@ -1,5 +1,8 @@
 \ ." Tue 22 Nov 21:58:39 UTC 2022"
 
+include minioff.fs
+include tcpptp.fs
+
 : delay 500 * 0 do 1 drop loop ;
 
 : sayw ."  SAY:    'words'  or  'bye'" ;
