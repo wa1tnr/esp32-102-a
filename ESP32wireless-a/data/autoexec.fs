@@ -13,6 +13,7 @@ include tcpptp.fs
 : blink high LEDv2 pin 44 delay low  LEDv2 pin 888 delay ;
 : blinks 0 do blink loop ;
 
+0 bg 2 fg
 -98 -97 \ no idea why the stack is deficient by two stack items.. but it is
 ledsetup cr sayw space space space tstamp cr blink
 
