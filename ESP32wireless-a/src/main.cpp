@@ -2677,7 +2677,7 @@ forth definitions
 
 ( Set up Basic I/O )
 internals definitions also serial
-: esp32-bye   0 restart ; ( terminate )
+: esp32-bye   0 bg 8 fg 0 restart ; ( terminate )
 : serial-type ( a n -- ) Serial.write drop ;
 : serial-key ( -- n )
    begin pause Serial.available until 0 >r rp@ 1 Serial.readBytes drop r> ;
