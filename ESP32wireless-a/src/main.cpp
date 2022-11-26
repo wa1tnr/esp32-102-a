@@ -80,7 +80,7 @@
       defined(CONFIG_BLUEDROID_ENABLED)) || \
      defined(SIM_PRINT_ONLY)
 #  define ENABLE_SERIAL_BLUETOOTH_SUPPORT
-#undef ENABLE_SERIAL_BLUETOOTH_SUPPORT // definitely helped - kludge tnr nov 20 2022
+// #undef ENABLE_SERIAL_BLUETOOTH_SUPPORT // definitely helped - kludge tnr nov 20 2022
 # endif
 #endif
 

@@ -1,10 +1,11 @@
-\ ." Tue 22 Nov 21:58:39 UTC 2022"
+\ ." Sat 26 Nov 02:17:31 UTC 2022"
 
 include minioff.fs
 include tcpptp.fs
 
 : delay 500 * 0 do 1 drop loop ;
 
+: tstamp ." Sat 26 Nov 02:17:31 UTC 2022";
 : sayw ."  SAY:    'words'  or  'bye'" ;
 
 : LEDv2 13 ;
@@ -13,6 +14,6 @@ include tcpptp.fs
 : blinks 0 do blink loop ;
 
 -98 -97 \ no idea why the stack is deficient by two stack items.. but it is
-ledsetup 5 blinks
+ledsetup cr sayw space space space tstamp cr blink
 
 \ end.
