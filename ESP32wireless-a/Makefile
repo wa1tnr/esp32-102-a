@@ -41,6 +41,9 @@ upload:
 
 install: spiffs upload term
 
+upgrade:
+	pio upgrade
+
 clean:
 	pio run -t clean
 
