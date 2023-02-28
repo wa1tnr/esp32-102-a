@@ -1,15 +1,15 @@
 
-# out of date:
-#     pio project init --board esp32doit-devkit-v1
+# pio project init --board esp32doit-devkit-v1
 
 all:
 	pio run
 
-upload:
-	pio run -t upload
+erase:
+	@echo HERE IS ERASE 28 Feb
+	pio run -t erase
 
-install: upload
-	sleep 4; ./cf-fastpico9t /dev/ttyACM0
+install:
+	pio run -t upload
 
 clean:
 	pio run -t clean
