@@ -1,11 +1,11 @@
-\ ." Sat 26 Nov 02:17:31 UTC 2022"
+\ ." Tue 28 Feb 16:11:31 UTC 2023"
 
 include minioff.fs
 include tcpptp.fs
 
 : delay 500 * 0 do 1 drop loop ;
 
-: tstamp ." Sat 26 Nov 02:17:31 UTC 2022";
+: tstamp ." Tue 28 Feb 16:11:31 UTC 2023";
 : sayw ."  SAY:    'words'  or  'bye'" ;
 
 : LEDv2 13 ;
