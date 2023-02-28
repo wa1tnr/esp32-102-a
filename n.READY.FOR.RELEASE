@@ -1,19 +1,7 @@
-0.1.2-pre-alpha READY.FOR.RELEASE
+0.1.3-pre-alpha READY.FOR.RELEASE
 
-last commit 847029a5862342b7450b73068d0a1d6b4bda548b
+last commit 10dd1e4a05e54f224c6d02449805fdb063a6be15
 
-Date:   Tue Nov 22 22:44:26 UTC 2022
+Date:   Tue Feb 28 19:54:17 UTC 2023
 
-    add one forth source
-
-commit 847029a5862342b7450b73068d0a1d6b4bda548b
-Author: wa1tnr <wa1tnr@users.noreply.github.com>
-Date:   Tue Nov 22 22:44:26 2022 +0000
-
-    add one forth source
-
-commit a5ef5f3b3af65711040a2d40923c6bcb733ac5f7
-Author: wa1tnr <wa1tnr@users.noreply.github.com>
-Date:   Tue Nov 22 22:15:04 2022 +0000
-
-END.
+    handle junk char for arduino IDE
