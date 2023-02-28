@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-// Tue 28 Feb 19:20:09 UTC 2023
+// Tue 28 Feb 19:37:42 UTC 2023
 
 // using -dd as model
 
@@ -50,11 +50,13 @@ void blink_durational() {
     }
 }
 
+char junk ;
+
 bool validate_serial() {
     uint8_t ser_count = Serial.available();
     bool result = 0;
     if (ser_count > 0) { // may prevent underflow - did not verify
-        char ch = Serial.read();
+        junk = Serial.read();
         result = -1 ; // yes serial read
         return result ;
     }
@@ -74,6 +76,7 @@ void setup_serial() {
             blink_durational();
         }
     } while (!serial_is_valid);
+    Serial.write(junk); // excuse to use it
 
 }
 
@@ -85,7 +88,7 @@ void best_setup(void) {
 void setup(void) {
     delay(700);
     best_setup();
-    Serial.println("\r\n\r\n   begin program  28 Feb 19:20z\r\n\r\n");
+    Serial.println("\r\n\r\n   begin program  28 Feb 19:52:08z  tiaga\r\n\r\n");
 }
 
 void loop(void) {
