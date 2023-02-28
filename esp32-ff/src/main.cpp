@@ -1,23 +1,16 @@
-// Sat 19 Nov 00:27:15 UTC 2022
-// +cpl +println
-
-#define NOWDATE "Sat 19 Nov 00:27:15 UTC 2022"
-
 #include <Arduino.h>
-// stoalynne coad:
-// https://learn.adafruit.com/adafruit-esp32-feather-v2/factory-reset
-// thanks for the follow
 
-// #include <Adafruit_TestBed.h>
+// Tue 28 Feb 19:20:09 UTC 2023
 
-// extern Adafruit_TestBed TB;
+// using -dd as model
 
-#define cr _cr(); // carriage return
-#define lf _lf(); // carriage return
-#define crlf _cr();_lf();
+// while(!Serial) does not seem to wait for serial connection
 
-void _cr() { Serial.write(0x0d); }
-void _lf() { Serial.write(0x0a); }
+void setup_gpio() {
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, 0);
+    delay(220);
+}
 
 void cpl() {
     int pin = LED_BUILTIN ;
@@ -30,128 +23,75 @@ void blink() {
     cpl();
     delay(4);
     cpl();
-    delay(7000);
+    delay(4);
 }
 
-#define NEOPIXEL_PIN 0
+// #define LARGE_COUNT 65532
+#define LARGE_COUNT   131064 // foundation
+#define COUNT_DIVISOR      2 // 65532
+#define COUNT_2ND_DIV      3 // 21844
+#define COUNT_MULTIPLIER  12 // 6291072 for 288  0x5FFE80 abt 23 bits
 
-void setup_af_testbed() {
-}
+#define COUNT_ABS ( ( ( LARGE_COUNT / COUNT_DIVISOR ) / COUNT_2ND_DIV ) * COUNT_MULTIPLIER )
 
-#define USE_RGB
-#undef USE_RGB
+// int a = ( ( ( LARGE_COUNT / COUNT_DIVISOR ) / COUNT_2ND_DIV ) * COUNT_MULTIPLIER )
 
-void setup_rgb() {
-    pinMode(NEOPIXEL_I2C_POWER, OUTPUT);
-#ifdef USE_RGB
-    digitalWrite(NEOPIXEL_I2C_POWER, HIGH);
-#endif
-#ifndef USE_RGB
-    digitalWrite(NEOPIXEL_I2C_POWER, LOW); // disable
-#endif
-    setup_af_testbed();
-}
+const uint32_t counter_iter = COUNT_ABS ;
 
-void setup_gpio() {
-    pinMode(LED_BUILTIN, OUTPUT);
-    digitalWrite(LED_BUILTIN, 0);
-    delay(220);
-#ifdef USE_RGB
-    setup_rgb();
-#endif
-}
-
-void clrSerial() {
-    int avbl = Serial.available();
-    while (avbl > 0) {
-        char ch = Serial.read(); // flush
+void wait_short() {
+    for (volatile uint32_t counting = counter_iter; counting > 1; counting--) {
+        // nothing
     }
 }
 
-void signon_msg() {
-    // https://docs.platformio.org/en/stable/projectconf/section_env_build.html
-    // Serial.println("MYSTRING=<%s>\n", MYSTRING);
-    Serial.println(MYOTHERSTR);
-    Serial.println("\n");
-    // Serial.println(MYSTRING);
+void blink_durational() {
+    for (volatile int looping = 65; looping > 1; looping--) { // was 254 ;)
+        wait_short();
+    }
+}
+
+bool validate_serial() {
+    uint8_t ser_count = Serial.available();
+    bool result = 0;
+    if (ser_count > 0) { // may prevent underflow - did not verify
+        char ch = Serial.read();
+        result = -1 ; // yes serial read
+        return result ;
+    }
+    result = 0 ; // force desired state
+    return result ;
 }
 
 void setup_serial() {
-    if (!Serial) {
-        Serial.begin(115200);
-        // Serial.begin(76600);
-        // Serial.begin(74880);
-        clrSerial();
-    }
+    Serial.begin(115200);
 
-#if 0
-    while (!Serial) {
-      ; // no new benefit
-    }
+    bool serial_is_valid = 0 ;
 
-    bool ser_state = Serial ; // true == connected?
+    do {
+        serial_is_valid = validate_serial() ;
+        if (!serial_is_valid) { // blink while awaiting connection
+            blink();
+            blink_durational();
+        }
+    } while (!serial_is_valid);
 
-    if (ser_state) { // connected?
-        Serial.print(" Serial, rather than !Serial "); // this one prints
-    }
-    if (!ser_state) {
-        Serial.print(" !Serial, rather than Serial "); // this one does not print
-    }
-#endif
+}
 
-    delay(700);
-    crlf crlf crlf crlf
-    Serial.println("begin program.");
+void best_setup(void) {
+    setup_gpio();
+    setup_serial();
 }
 
 void setup(void) {
-    setup_serial();
     delay(700);
-    setup_gpio(); delay(700);
-    delay(12000);
-    crlf signon_msg(); delay(700);
+    best_setup();
+    Serial.println("\r\n\r\n   begin program  28 Feb 19:20z\r\n\r\n");
 }
-
-uint8_t wheelColor=0;
-
-int divider = 0;
-
-void gonePrinting() {
-    Serial.print("  I am looping: fghij ");
-    // Serial.print(MYOTHERSTR);
-    Serial.println(MYSTRING);
-    cpl();
-
-    uint16_t szOfWhColMultpld = sizeof(wheelColor) * 256;
-
-    wheelColor = ( wheelColor + 1)&  (
-            ( szOfWhColMultpld - 1)
-        ); // expect this to be 255 (256 - 1 = 255)
-
-    Serial.print("  icw: ");
-    Serial.println(wheelColor);
-#ifdef USE_RGB
-    TB.setColor(TB.Wheel(wheelColor));
-#endif
-}
-
-
-bool goprint;
 
 void loop(void) {
-    blink();
-#if 0
-    divider++;
-    if (divider > 27) {
-        divider = 0;
-        goprint = true;
-    }
-    if (goprint == true) {
-        gonePrinting();
-        goprint = false;
-    }
-    // delay(100);
-#endif
+    Serial.print(" . "); // heartbeat tty serial
+    // blink();
+    blink_durational(); // wait about as long as a blink between heartbeats
 }
 
 // END.
