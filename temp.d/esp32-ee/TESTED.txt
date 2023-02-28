@@ -1,0 +1,9 @@
+Fri 18 Nov 15:07:08 UTC 2022
+
+tested - git clone from github - does what is expected. ;)
+
+  target is the Adafruit esp32 v2 board PID 5400
+
+  no additional hardware - just the board.
+
+END.
