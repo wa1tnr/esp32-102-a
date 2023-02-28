@@ -8,9 +8,9 @@
 // https://learn.adafruit.com/adafruit-esp32-feather-v2/factory-reset
 // thanks for the follow
 
-#include <Adafruit_TestBed.h>
+// #include <Adafruit_TestBed.h>
 
-extern Adafruit_TestBed TB;
+// extern Adafruit_TestBed TB;
 
 #define cr _cr(); // carriage return
 #define lf _lf(); // carriage return
@@ -36,14 +36,6 @@ void blink() {
 #define NEOPIXEL_PIN 0
 
 void setup_af_testbed() {
-    TB.neopixelPin = NEOPIXEL_PIN;
-    TB.neopixelNum = 1; // multi-rgb strip dotcom > '1' here
-    TB.begin(); // seems fine right here
-    TB.setColor(0x140000); // red
-    delay(1250);
-    TB.setColor(0x001400); // green
-    delay(1250);
-    TB.setColor(0x000014); // and blue - full monty
 }
 
 #define USE_RGB
@@ -116,6 +108,7 @@ void setup(void) {
     setup_serial();
     delay(700);
     setup_gpio(); delay(700);
+    delay(12000);
     crlf signon_msg(); delay(700);
 }
 
