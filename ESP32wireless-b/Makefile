@@ -3,9 +3,7 @@
 #     pio project init --board adafruit_feather_esp32_v2
 
 all:
-	pio run # restored 27 Feb 17:02z
-
-	# pio run -v # was just pio run not -v 27 Feb
+	pio run
 
 monitor:
 	pio run -t monitor
@@ -30,7 +28,9 @@ devlist:
 spiffs: erase
 	@echo HERE IS SPIFFS
 	@sleep 2
-	pio run -t uploadfs -v # -v new 21:53z 27 Feb Monday
+	pio run -v -t uploadfs
+
+#	pio run -t uploadfs
 
 # no spiffs upload before terminal launch:
 nsterm:

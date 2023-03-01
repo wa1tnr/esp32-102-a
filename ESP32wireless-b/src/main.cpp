@@ -1560,7 +1560,8 @@ sp0 'stack-cells @ 2 3 */ cells + constant sp-limit
 variable boot-prompt
 : free. ( nf nu -- ) 2dup swap . ." free + " . ." used = " 2dup + . ." total ("
                      over + 100 -rot */ n. ." % free)" ;
-: raw-ok   cr ."  local mod Tue 28 Feb 16:11:31 UTC 2023 pio Makefile build - v7.0.7.4 - rev 595ed9e8296c64661139" cr
+: raw-ok   ."  v7.0.7.4 - rev 595ed9e8296c64661139" cr
+           ." Tue 28 Feb 23:39:31 UTC 2023" cr
            boot-prompt @ if boot-prompt @ execute then
            ." Forth dictionary: " remaining used free. cr
            ." 3 x Forth stacks: " 'stack-cells @ cells . ." bytes each" cr
