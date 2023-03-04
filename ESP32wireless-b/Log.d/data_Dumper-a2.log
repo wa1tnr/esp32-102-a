@@ -1,0 +1,399 @@
+Script started on 2023-03-04 23:28:58 UTC
+
+[TERM="xterm" COLUMNS="105" LINES="27"]
+
+user@host: esp32-102-a/ESP32wireless-b/Log.d$
+
+ $ export PS1=" script pio $ "
+
+ script pio $  ./cf-fastpico9t /dev/ttyACM0 
+
+NON-STANDARD escape char is the backslash, not the usual Control+A
+Control \, Control Q to quit
+Control \, Control S to send a file from the local directory
+Good for 9term August 2020
+picocom v3.1
+
+port is        : /dev/ttyACM0
+flowcontrol    : none
+baudrate is    : 115200
+parity is      : none
+databits are   : 8
+stopbits are   : 1
+escape is      : C-|
+local echo is  : no
+noinit is      : no
+noreset is     : no
+hangup is      : no
+nolock is      : no
+send_cmd is    : ascii-xfr -sn -l 5 -c 1
+receive_cmd is : rz -vv -E
+imap is        : 
+omap is        : crlf,delbs,
+emap is        : crcrlf,delbs,
+logfile is     : none
+initstring     : none
+exit_after is  : not set
+exit is        : no
+
+Type [C-|] [C-h] to see available commands
+Terminal ready
+
+ ok
+--> bye
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1184
+load:0x40078000,len:13132
+load:0x40080400,len:3036
+entry 0x400805e4
+
+ SAY:    'words'  or  'bye'   Arduino/ESP32wireless-a-p   kenesis vesper
+Wed  1 Mar 00:13:42 UTC 2023
+
+ESP32forth v7.0.7.4 - rev 595ed9e8296c64661139
+Tue 28 Feb 23:39:31 UTC 2023
+ESP32-PICO-V3-02   240 MHz   2 cores   8388608 bytes flash
+     System Heap: 185212 free + 214672 used = 399884 total (46% free)
+                  110580 bytes max contiguous
+Forth dictionary: 60848 free + 43488 used = 104336 total (58% free)
+3 x Forth stacks: 2048 bytes each
+ ok
+--> 
+*** file: ./data_dumper-a.fs
+$ ascii-xfr -sn -l 5 -c 1 ./data_dumper-a.fs
+ASCII upload of "./data_dumper-a.fs"
+Line delay: 5 ms, character delay 1 ms
+
+
+ ok
+-->  ( top of sub-program   OPERATIONAL 23:16z )
+ ok
+--> hex 500C2C00
+ ok
+500C2C00 --> hex 5 3 * .
+F  ok
+500C2C00 --> 
+ ok
+500C2C00 --> : stripval ( n -- n<128 )
+ ok
+500C2C00 -->   dup 7f and
+ ok
+500C2C00 --> ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : nexchEmit ( n -- n+1 )
+ ok
+500C2C00 -->   dup c@ dup dup stripval = if
+ ok
+500C2C00 3F80CB14 -->       dup 1F > if
+ ok
+500C2C00 3F80CB14 3F80CB2C -->           drop emit 1 + exit
+ ok
+500C2C00 3F80CB14 3F80CB2C -->       then
+ ok
+500C2C00 3F80CB14 -->   then
+ ok
+500C2C00 -->   drop drop [char] . emit 1 + \ plus
+ ok
+500C2C00 --> ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : nc ( -- ) nexchEmit ; \ alias
+ ok
+500C2C00 --> : row 8 dup + 0 do nc loop
+ ok
+500C2C00 --> ;
+ ok
+500C2C00 --> : frow 4 0 do row loop ;
+ ok
+500C2C00 --> : stanz 4 0 do frow cr loop ;
+ ok
+500C2C00 --> : group 4 0 do stanz  loop ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : bfscan 8 dup * 0 do group loop ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : goferit  swap drop dup bfscan ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : kurtz 3F803400 700 +  group space group space  ." canwulf "  ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> here 2000 - \ minus
+ ok
+500C2C00 3F80AD2C --> 
+ ok
+500C2C00 3F80AD2C --> ( end )
+ ok
+500C2C00 3F80AD2C --> 
+*** exit status: 0 ***
+.s
+<2> 500C2C00 3F80AD2C 
+ ok
+500C2C00 3F80AD2C --> swap
+ ok
+3F80AD2C 500C2C00 --> drop
+ ok
+3F80AD2C --> drop
+ ok
+--> kurtz
+l'.?<;.?.bA?.8.?.cA?\_A?.cA?.bA?dcA?._A?h_A?.bA?._A?.bA?.&.?.(.?
+L:.?.bA?.^A?.9.?.eA?input-limit..<.?.....`.@....tib.4:.?.....`.@
+.aA?.bA?.eA?input-buffer.(.?..3..`.@....kurtz )00 - \ minus0 +  
+group space group space  ." canwulf "  ;........./....>....*....
+....n..................................z..r.o..........\........
+........O................2....r.........;..v.O..tib-setup....7.?
+.....`.@.;.?.aA?@cA?.eA?refill..|;.?.....`.@.<.?|;.?h;.?4:.?.aA?
+@cA?.cA?.....aA?@cA?.cA?.....eA?sp-limith;.?.....`.@@..??stack..
+.<.?.."..`.@pcA?$$.?._A?('.?P=.?.4.?....STACK UNDERFLOW ....@0.?
+.cA?.......?.&.?.<.?pcA?._A?('.?.=.?.4.?....STACK OVERFLOW .@0.?
+.cA?.......?.&.?.eA?prompt...<.?.....`.@.4.?.... ok.@0.?.0.?.eA?
+evaluate-buffer.,8.?.....`.@.%.?.aA?.bA?.aA?.bA?._A?.'.?.>.?.dA?
+.=.?.(.?.=.?.eA?evaluate.=.?.....`.@.aA?.bA?.cA?.aA?.bA?.cA?.aA?
+.bA?.cA?.aA?@cA?.aA?@cA?.cA?.....aA?@cA?.=.?.cA?.aA?@cA?.cA?.aA?
+@cA?.cA?.aA?@cA?.eA?quit >.?.....`.@.%.?.cA?.=.?0..?('.?.?.?.cA?
+.....aA?@cA?$$.?|cA?L$.?t\A?8$.?.cA?.4.?....ERROR...@0.?.0.?.&.?
+ .=.?.<.?.bA? &.?.>.?.eA?boot-prompt..?.?.....`.@...?free....,?.?
+..#..`.@p`A?.bA?.3.?.4.?....free + .@0.?.3.?.4.?....used = .@0.?
+p`A?\bA?.3.?.4.?....total (.@0.?.bA?\bA?.cA?d...h_A?.^A?.4.?.4.?
+....% free).@0.?.eA?raw-ok...A.?..F..`.@.4.?$... v7.0.7.4 - rev 
+595ed9e8296c64661139....@0.?.0.?.4.?....Tue 28 Feb 23:39:31 UTC 
+2023....@0.?.0.?,?.?.bA?('.?p@.?,?.?.bA?.cA?.&.?.4.?....Forth di
+ctionary: ..@0.?.$.?.$.?D?.?.0.?.4.?....3 x Forth stacks: ..@0.?
+xaA?.bA?L`A?.3.?.4.?....bytes each..@0.?.0.?.=.?.<.?.bA?.>.?.eA?
+DEFINED?.>.?.....`.@._A?xdA?ldA?.aA?.bA?('.?8A.?HdA?.&.?.eA?[SKI
+P]...=.?.....`.@.0.?.A.?[THEN]...A.?.....`.@.eA?[ELSE]..hA.?....
+.`.@LA.?.eA?[IF].A.?.....`.@DbA?('.?.A.?LA.?.&.?.eA?[SKIP]'.LA.?
+..9..`.@.cA?.....%.?.A.?.bA?('.?.B.?.bA?.cA?.A.?._A?('.?.B.?.bA?
+._A?.bA?.&.?.bA?.cA?.A.?._A?('.?TB.?.bA?.bA?.cA?....._A?('.?LB.?
+d`A?.eA?.&.?.bA?.&.?.bA?.cA?hA.?._A?('.?.B.?.bA?._A?.bA?PbA?('.?
+.B.?d`A?.eA?.&.?.bA?.&.?.&.?.bA? &.?.A.?.eA?last-vocabulary.hE.?
+.....`.@...?vocabulary...A.?.....`.@.dA?0aA?.bA?.cA?....L`A?\bA?
+ canwulf  ok
+3F804300 --> .s
+<1> 3F804300 
+ ok
+3F804300 --> bye
+ets Jul 29 2019 12:21:46
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 271414342, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1184
+load:0x40078000,len:13132
+load:0x40080400,len:3036
+entry 0x400805e4
+
+ SAY:    'words'  or  'bye'   Arduino/ESP32wireless-a-p   kenesis vesper
+Wed  1 Mar 00:13:42 UTC 2023
+
+ESP32forth v7.0.7.4 - rev 595ed9e8296c64661139
+Tue 28 Feb 23:39:31 UTC 2023
+ESP32-PICO-V3-02   240 MHz   2 cores   8388608 bytes flash
+     System Heap: 185212 free + 214672 used = 399884 total (46% free)
+                  110580 bytes max contiguous
+Forth dictionary: 60848 free + 43488 used = 104336 total (58% free)
+3 x Forth stacks: 2048 bytes each
+ ok
+--> 
+*** file: data_dumper-a.fs
+$ ascii-xfr -sn -l 5 -c 1 data_dumper-a.fs
+ASCII upload of "data_dumper-a.fs"
+Line delay: 5 ms, character delay 1 ms
+
+
+ ok
+-->  ( top of sub-program   OPERATIONAL 23:16z )
+ ok
+--> hex 500C2C00
+ ok
+500C2C00 --> hex 5 3 * .
+F  ok
+500C2C00 --> 
+ ok
+500C2C00 --> : stripval ( n -- n<128 )
+ ok
+500C2C00 -->   dup 7f and
+ ok
+500C2C00 --> ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : nexchEmit ( n -- n+1 )
+ ok
+500C2C00 -->   dup c@ dup dup stripval = if
+ ok
+500C2C00 3F80CB14 -->       dup 1F > if
+ ok
+500C2C00 3F80CB14 3F80CB2C -->           drop emit 1 + exit
+ ok
+500C2C00 3F80CB14 3F80CB2C -->       then
+ ok
+500C2C00 3F80CB14 -->   then
+ ok
+500C2C00 -->   drop drop [char] . emit 1 + \ plus
+ ok
+500C2C00 --> ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : nc ( -- ) nexchEmit ; \ alias
+ ok
+500C2C00 --> : row 8 dup + 0 do nc loop
+ ok
+500C2C00 --> ;
+ ok
+500C2C00 --> : frow 4 0 do row loop ;
+ ok
+500C2C00 --> : stanz 4 0 do frow cr loop ;
+ ok
+500C2C00 --> : group 4 0 do stanz  loop ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : bfscan 8 dup * 0 do group loop ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : goferit  swap drop dup bfscan ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> : kurtz 3F803400 700 +  group space group space  ." canwulf "  ;
+ ok
+500C2C00 --> 
+ ok
+500C2C00 --> here 2000 - \ minus
+ ok
+500C2C00 3F80AD2C --> 
+ ok
+500C2C00 3F80AD2C --> ( end )
+ ok
+500C2C00 3F80AD2C --> 
+*** exit status: 0 ***
+
+drop drop kurtz
+
+l'.?<;.?.bA?.8.?.cA?\_A?.cA?.bA?dcA?._A?h_A?.bA?._A?.bA?.&.?.(.?
+L:.?.bA?.^A?.9.?.eA?input-limit..<.?.....`.@....tib.4:.?.....`.@
+.aA?.bA?.eA?input-buffer.(.?..3..`.@....drop drop kurtzinus0 +  
+group space group space  ." canwulf "  ;........./....>....*....
+....n..................................z..r.o..........\........
+........O................2....r.........;..v.O..tib-setup....7.?
+.....`.@.;.?.aA?@cA?.eA?refill..|;.?.....`.@.<.?|;.?h;.?4:.?.aA?
+@cA?.cA?.....aA?@cA?.cA?.....eA?sp-limith;.?.....`.@@..??stack..
+.<.?.."..`.@pcA?$$.?._A?('.?P=.?.4.?....STACK UNDERFLOW ....@0.?
+.cA?.......?.&.?.<.?pcA?._A?('.?.=.?.4.?....STACK OVERFLOW .@0.?
+.cA?.......?.&.?.eA?prompt...<.?.....`.@.4.?.... ok.@0.?.0.?.eA?
+evaluate-buffer.,8.?.....`.@.%.?.aA?.bA?.aA?.bA?._A?.'.?.>.?.dA?
+.=.?.(.?.=.?.eA?evaluate.=.?.....`.@.aA?.bA?.cA?.aA?.bA?.cA?.aA?
+.bA?.cA?.aA?@cA?.aA?@cA?.cA?.....aA?@cA?.=.?.cA?.aA?@cA?.cA?.aA?
+@cA?.cA?.aA?@cA?.eA?quit >.?.....`.@.%.?.cA?.=.?0..?('.?.?.?.cA?
+.....aA?@cA?$$.?|cA?L$.?t\A?8$.?.cA?.4.?....ERROR...@0.?.0.?.&.?
+ .=.?.<.?.bA? &.?.>.?.eA?boot-prompt..?.?.....`.@...?free....,?.?
+..#..`.@p`A?.bA?.3.?.4.?....free + .@0.?.3.?.4.?....used = .@0.?
+p`A?\bA?.3.?.4.?....total (.@0.?.bA?\bA?.cA?d...h_A?.^A?.4.?.4.?
+....% free).@0.?.eA?raw-ok...A.?..F..`.@.4.?$... v7.0.7.4 - rev 
+595ed9e8296c64661139....@0.?.0.?.4.?....Tue 28 Feb 23:39:31 UTC 
+2023....@0.?.0.?,?.?.bA?('.?p@.?,?.?.bA?.cA?.&.?.4.?....Forth di
+ctionary: ..@0.?.$.?.$.?D?.?.0.?.4.?....3 x Forth stacks: ..@0.?
+xaA?.bA?L`A?.3.?.4.?....bytes each..@0.?.0.?.=.?.<.?.bA?.>.?.eA?
+DEFINED?.>.?.....`.@._A?xdA?ldA?.aA?.bA?('.?8A.?HdA?.&.?.eA?[SKI
+P]...=.?.....`.@.0.?.A.?[THEN]...A.?.....`.@.eA?[ELSE]..hA.?....
+.`.@LA.?.eA?[IF].A.?.....`.@DbA?('.?.A.?LA.?.&.?.eA?[SKIP]'.LA.?
+..9..`.@.cA?.....%.?.A.?.bA?('.?.B.?.bA?.cA?.A.?._A?('.?.B.?.bA?
+._A?.bA?.&.?.bA?.cA?.A.?._A?('.?TB.?.bA?.bA?.cA?....._A?('.?LB.?
+d`A?.eA?.&.?.bA?.&.?.bA?.cA?hA.?._A?('.?.B.?.bA?._A?.bA?PbA?('.?
+.B.?d`A?.eA?.&.?.bA?.&.?.&.?.bA? &.?.A.?.eA?last-vocabulary.hE.?
+.....`.@...?vocabulary...A.?.....`.@.dA?0aA?.bA?.cA?....L`A?\bA?
+ canwulf  ok
+3F804300 --> .s
+<1> 3F804300 
+ ok
+3F804300 --> dup
+ ok
+3F804300 3F804300 -->   3F803400 700 +
+ ok
+3F804300 3F804300 3F803B00 -->  swap drop
+ ok
+3F804300 3F803B00 --> swap drop
+ ok
+3F803B00 --> .s
+<1> 3F803B00 
+ ok
+3F803B00 --> .s
+<1> 3F803B00 
+ ok
+3F803B00 --> 100 dump
+
+3F803B00            6C 27 80 3F 3C 3B 80 3F C8 62 41 3F A4 38 80 3F 
+3F803B10            A0 63 41 3F 5C 5F 41 3F AC 63 41 3F E0 62 41 3F 
+3F803B20            64 63 41 3F EC 5F 41 3F 68 5F 41 3F D4 62 41 3F 
+3F803B30            EC 5F 41 3F D4 62 41 3F E8 26 80 3F 14 28 80 3F 
+3F803B40            4C 3A 80 3F EC 62 41 3F E4 5E 41 3F DC 39 80 3F 
+3F803B50            08 65 41 3F 69 6E 70 75 74 2D 6C 69 6D 69 74 FA 
+3F803B60            84 3C 80 3F 00 0B 01 00 9B 60 0D 40 C8 00 00 00 
+3F803B70            74 69 62 DF 34 3A 80 3F 00 03 03 00 8B 60 0D 40 
+3F803B80            9C 61 41 3F F8 62 41 3F 08 65 41 3F 69 6E 70 75 
+3F803B90            74 2D 62 75 66 66 65 72 E8 28 80 3F 00 0C 33 00 
+3F803BA0            BF 60 0D 40 00 00 00 00 31 30 30 20 64 75 6D 70 
+3F803BB0            70 70 20 37 30 30 20 2B 6E 75 73 30 20 2B 20 20 
+3F803BC0            67 72 6F 75 70 20 73 70 61 63 65 20 67 72 6F 75 
+3F803BD0            70 20 73 70 61 63 65 20 20 2E 22 20 63 61 6E 77 
+3F803BE0            75 6C 66 20 22 20 20 3B AF FF FE AA FB DF DA EE 
+3F803BF0            FB 2F B6 BA 8E BD 3E CA AA 9F DE 2A 98 EB FD BC 
+ ok
+--> 
+
+Terminating...
+Skipping tty reset...
+Thanks for using picocom
+
+Script done on 2023-03-04 23:32:03 UTC [COMMAND_EXIT_CODE="0"]
+
+ ( top of sub-program   OPERATIONAL 23:16z )
+hex 500C2C00
+hex 5 3 * .
+
+: stripval ( n -- n<128 )
+  dup 7f and
+;
+
+: nexchEmit ( n -- n+1 )
+  dup c@ dup dup stripval = if
+      dup 1F > if
+          drop emit 1 + exit
+      then
+  then
+  drop drop [char] . emit 1 + \ plus
+;
+
+: nc ( -- ) nexchEmit ; \ alias
+: row 8 dup + 0 do nc loop
+;
+: frow 4 0 do row loop ;
+: stanz 4 0 do frow cr loop ;
+: group 4 0 do stanz  loop ;
+
+: bfscan 8 dup * 0 do group loop ;
+
+: goferit  swap drop dup bfscan ;
+
+: kurtz 3F803400 700 +  group space group space  ." canwulf "  ;
+
+here 2000 - \ minus
+
+( end )
