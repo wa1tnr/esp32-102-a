@@ -1,5 +1,6 @@
 
- ( top of sub-program   OPERATIONAL 23:16z )
+ ( top of sub-program   OPERATIONAL 00:56z Sunday 5 March 2023 )
+
 hex 500C2C00
 hex 5 3 * .
 
@@ -8,17 +9,17 @@ hex 5 3 * .
 ;
 
 : nexchEmit ( addr -- addr+1 )
-  dup c@ dup dup stripval = if \ if it didn't need stripping, after all..
-      dup 1F > if   \ only printable chars survive
-          drop emit \ print to console
-          1 + exit  \ promised address increment
+  dup c@ dup dup stripval = if
+      dup 1F > if
+          drop emit
+          1 + exit
       then
   then
-  drop drop [char] . emit \ non-printable char
-  1 + \ increment addr
+  drop drop [char] . emit
+  1 + \ plus
 ;
 
-\ everything below this line is an optional 'macro'
+\ optional macros -----
 
 : nc ( -- ) nexchEmit ; \ alias
 : row 8 dup + 0 do nc loop
@@ -31,16 +32,11 @@ hex 5 3 * .
 
 : goferit  swap drop dup bfscan ;
 
-: kurtz 3F803400 700 +  group space group space  ." canwulf "  ;
+: kurtz 3F803400 700 +  group space group space  ." pirhana sp"  ;
 
 here 2000 - \ minus
 
 ( end )
 
-\ Considering making the second one also a mask op:
-
-\ dup 7f and
-
-\ dup 1F > if
-
+: version ." 0.0.0aa-" cr ;
 \ END.
