@@ -2,7 +2,8 @@
 
 include minioff.fs
 include tcpptp.fs
-include data_dumper-a.fs
+\ include data_dumper-a.fs
+include data_d_tests.fs
 
 : delay 500 * 0 do 1 drop loop ;
 
