@@ -20,5 +20,21 @@ hex 5 3 * . ( -- )
 : kurtz ( addr -- addr+1024 ) 3F803400 700 +  group space group space  ." octopii gmbh "  ;
 : giveagoodhoot  40C00000 50000000 ffff - ffff - ffff - ffff -   ffff - ffff - ffff - ffff - ;
 here 2000 - ( -- addr-0x2000 )
+decimal
+: testi ( n -- ) \ print chars above ascii 31
+    dup 31 255 xor and if
+        dup .
+        emit space s" interior " type cr exit
+    then
+    drop
+;
+hex
+variable ltcount
+: granf
+    DUP ltcount !
+    0 DO
+        ltcount @ DUP testi 1 + ltcount !
+    LOOP
+;
 : version ( -- ) ." 05 Mar 2023   0.0.0bb-" cr ;
 ( end )
