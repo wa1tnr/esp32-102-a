@@ -52,7 +52,9 @@ upgrade:
 #	pio platform update PLATFORM@X.Y.Z
 
 platforma:
-	pio pkg update -p espressif32@5.2.0+sha.03254d4
+	pio pkg update -p espressif32@6.3.1
+
+	# pio pkg update -p espressif32@5.2.0+sha.03254d4
 
 platforms: platforma
 
