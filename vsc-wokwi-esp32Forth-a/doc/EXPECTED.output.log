@@ -1,0 +1,17 @@
+
+  this anomaly (below) is now 'expected' and doesn't do
+  a specific known (locally!) 'harm':
+
+load:0x40080400,len:3028
+entry 0x400805e4
+E (1578) esp_core_dump_flash: No core dump partition found!
+E (1578) esp_core_dump_flash: No core dump partition found!
+[  1583][D][esp32-hal-cpu.c:244] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+
+that is to say, it is tolerated as a 'huh what is that' thought with
+reasonable success.
+
+Should be addressed in some way, of course.
+
+end.
+Sat 23 Mar 18:53:38 UTC 2024

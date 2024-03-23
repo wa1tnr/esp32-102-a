@@ -1,0 +1,6 @@
+[wokwi]
+version = 1
+gdbServerPort = 3333
+firmware = "merged-flash.bin"
+rfc2217ServerPort = 4000
+elf = ".pio/build/esp32doit-devkit-v1/firmware.elf"

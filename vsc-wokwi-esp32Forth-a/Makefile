@@ -1,8 +1,29 @@
 # Fri 13 Jan 12:59:48 UTC 2023
 
 #     pio project init --board adafruit_feather_esp32_v2
+#     pio project init --board uno_r4_wifi
+#     pio boards | ag esp32 | cat
+#     pio project init --board esp32doit-devkit-v1
 
-all:
+all: distclean clean spiffs xall merbi
+
+env:
+	@echo  "    source ./.profile__platformio"
+
+xall:
+	pio -f -c vim run
+
+# tried 8000 trying 6000 for partitions.bin
+
+merbi:
+	esptool.py --chip ESP32 merge_bin \
+	-o merged-flash.bin --flash_mode dio --flash_size 4MB \
+	0x1000 .pio/build/esp32doit-devkit-v1/bootloader.bin \
+	0x8000 .pio/build/esp32doit-devkit-v1/partitions.bin \
+	0x10000 .pio/build/esp32doit-devkit-v1/firmware.bin \
+	0x3D0000 .pio/build/esp32doit-devkit-v1/spiffs.bin
+
+nomore:
 	pio run
 
 monitor:
@@ -25,10 +46,16 @@ devlist:
 
 # https://community.platformio.org/t/i-cannot-figure-out-how-to-upload-a-spiffs-image/6172
 
-spiffs: erase
+spiffs:
+	pio run -v -t buildfs
+
+xspiffs: erase
 	@echo HERE IS SPIFFS
 	@sleep 2
 	pio run -v -t uploadfs
+
+image:
+	@echo HERE IS image make target
 
 #	pio run -t uploadfs
 
@@ -52,7 +79,9 @@ upgrade:
 #	pio platform update PLATFORM@X.Y.Z
 
 platforma:
-	pio pkg update -p espressif32@6.3.1
+	pio pkg update -p espressif32@6.4.0
+
+	# pio pkg update -p espressif32@6.3.1
 
 	# pio pkg update -p espressif32@5.2.0+sha.03254d4
 
@@ -77,3 +106,9 @@ clean:
 
 distclean: clean
 	rm -rf ./.pio
+
+# fakes
+
+patched:
+	@echo patched run - ignore entirely is fake
+
