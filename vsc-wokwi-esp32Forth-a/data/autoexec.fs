@@ -22,8 +22,8 @@ include ddumpx-a.fs
 \ include led_blink.fs
 include sp.fs
 include kermit.fs
-include minioff.fs
-include tcpptp.fs
+\ include minioff.fs
+\ include tcpptp.fs
 0 bg 2 fg
 -98 -97 \ no idea why the stack is deficient by two stack items.. but it is
 ledsetup cr sayw space space space tstamp cr blink
