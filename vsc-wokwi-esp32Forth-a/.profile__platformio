@@ -1,0 +1,12 @@
+     # please use statements in the form of:
+
+     PATH="$HOME/.here/packages/tool-esptoolpy:$PATH"
+     PATH="$HOME/.here/penv/bin:$PATH"
+
+#   .here is typically .platformio
+
+# The object is to use platformio in the current environment,
+# and also use esptoolpy at the command line (in the Makefile).
+
+# there are others ways to reach the same goal.  This is one way.
+
