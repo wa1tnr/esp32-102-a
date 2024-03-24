@@ -8,7 +8,10 @@
 all: distclean clean spiffs xall merbi
 
 env:
-	@echo  "    source ./.profile__platformio"
+	@echo  "    " export PS1=\\042 make \\044   \\042    \\073 source ./.profile__platformio \# lb
+
+
+#       @echo  "    source ./.profile__platformio"
 
 xall:
 	pio -f -c vim run
