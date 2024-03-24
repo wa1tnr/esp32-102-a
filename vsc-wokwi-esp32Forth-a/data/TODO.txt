@@ -1,0 +1,39 @@
+
+TODO.txt
+
+  Find a way to break the loop more elegantly.
+
+  initially: scan for keyboard input and do something
+             based on that input.
+
+             e.g. a space bar tap
+
+  default would be to wait a short while for spacebar
+  input; if not present continue without further action
+  (no input required to have loop continue after the
+  pause).
+
+
+    : waitfor 55555 0 do key? drop loop ; \ establish timing
+
+
+33 33 --> see waitfor
+
+hey very nice 'see' word just type it and the name no quotes
+
+: waitfor 
+    17 555 0 DO 
+        key? \ seems to map to a keystroke
+        32 - 0= IF
+        EXIT
+        THEN
+        cr cr .s cr cr blink blink blink 
+    LOOP 
+; 
+
+: waitfor 
+    17 555 0 DO 
+        key? cr cr .s cr cr blink blink blink 
+    LOOP 
+; 
+

@@ -1,0 +1,51 @@
+
+
+
+ ok
+--> cvariable
+
+ERROR: cvariable NOT FOUND!
+ERROR
+ ok
+--> words
+kermit scans scan g picked nuf cranston duppp testv version kurtz goferit 
+bfscan group stanz frow row nc nexchEmit stripval faves cls cyanclr e2j 
+ESC blinks blink ledSetup LEDthis sayw tstamp delay version test handling 
+climits limits counted print_index handled handledc gated_lo? except7f 
+gated_hi? schar lo_gate hi_gate dotsymb pctsgn FORTH camera-server camera 
+telnetd bterm timers registers webui login   web-interface httpd riscv-assembler 
+xtensa-assembler assembler ok LED OUTPUT INPUT HIGH LOW tone freq duty 
+adc pin default-key? default-key default-type visual set-title page at-xy 
+normal bg fg ansi editor list copy thru load flush update empty-buffers 
+buffer block save-buffers default-use use open-blocks block-id scr block-fid 
+needs required included? include included reset revive startup: remember 
+restore save ls cat touch rm mv cp dump-file streams ms start-task task 
+pause tasks ENDOF OF ENDCASE CASE +to to exit ; { (local) asm words vlist 
+order see .s startswith? str= :noname forget dump spaces assert oled bluetooth 
+rtos rmt interrupts sockets Serial ledc SPIFFS spi_flash SD_MMC SD WiFi 
+Wire ESP read-dir resize free allocate structures f.s f. #fs set-precision 
+precision fvariable fconstant fliteral afliteral sf, internals sealed previous 
+also only transfer{ }transfer transfer definitions vocabulary [IF] [ELSE] 
+[THEN] DEFINED? quit evaluate prompt refill tib accept echo z>s s>z r~ 
+r| r" z" ." s" n. ? . u. binary decimal octal hex str #> sign #s # hold 
+<# extract pad hld cr space emit bye key? key type is defer +to to value 
+throw catch handler K J I loop +loop leave UNLOOP ?do do next for nest-depth 
+postpone recurse aft repeat while else if then ahead until again begin 
+[char] char ['] ' used remaining fdepth depth fp0 rp0 sp0 #! \ ( pinMode 
+digitalWrite digitalRead analogRead pulseIn MS-TICKS TERMINATE RESTART 
+R/O W/O R/W BIN CLOSE-FILE FLUSH-FILE OPEN-FILE CREATE-FILE DELETE-FILE 
+RENAME-FILE WRITE-FILE READ-FILE FILE-POSITION REPOSITION-FILE RESIZE-FILE 
+FILE-SIZE NON-BLOCK OPEN-DIR CLOSE-DIR dacWrite MDNS.begin FP@ FP! SF@ 
+SF! FDUP FNIP FDROP FOVER FSWAP FROT FNEGATE F0< F0= F= F< F> F<> F<= F>= 
+F+ F- F* F/ 1/F S>F F>S SFLOAT SFLOATS SFLOAT+ PI FSIN FCOS FSINCOS FATAN2 
+F** FLOOR FEXP FLN FABS FMIN FMAX FSQRT >flags >flags& >params >size >link& 
+>link >name aligned align nip rdrop */ * /mod / mod invert negate - rot 
+-rot ?dup < > <= >= = <> 0<> bl nl 1+ 1- 2* 2/ 4* 4/ +! cell+ cells cell/ 
+2drop 2dup 2@ 2! cmove cmove> fill erase blank min max abs here allot , 
+c, current #tib >in state base context latestxt [ ] literal 0= 0< + U/MOD 
+*/MOD LSHIFT RSHIFT ARSHIFT AND OR XOR DUP SWAP OVER DROP @ SL@ UL@ SW@ 
+UW@ C@ ! L! W! C! SP@ SP! RP@ RP! >R R> R@ EXECUTE CELL FIND PARSE CREATE 
+VARIABLE CONSTANT DOES> IMMEDIATE >BODY : EXIT ; forth-builtins 
+ ok
+--> 
+

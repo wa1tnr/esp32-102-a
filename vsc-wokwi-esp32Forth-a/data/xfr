@@ -1,0 +1,8 @@
+#!/bin/sh
+  ascii-xfr \
+      -s -l 200 -c 5 \
+    ${1}  | nc -q1 127.0.0.1 4000
+
+
+# quit after EOF plus n secs:
+#  nc -q 1

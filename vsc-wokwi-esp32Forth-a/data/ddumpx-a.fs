@@ -1,9 +1,18 @@
 
  ( top of sub-program   OPERATIONAL 00:56z Sunday 5 March 2023 )
 
+." Sat 23 Mar 21:47:30 UTC 2024 "
+
 \ FFFFFF9D 500C2C00 3FFF0030 3FFE5F00 3FFEC718
 
+hex
+: faves
+  ." unknown: "   ." 500C2C00 "  500C2C00
+  ." basal mem: " ." 3F400000 "  3F400000
+  ." spiffs: "    ." 3FFCC000 "  3FFCC000 ;
+
 hex 500C2C00
+    3F400000 \ low or lowest address with forth source code seen 24 March 20:47z
     3FFF0030 \ wonder what - is listed after a 'bye'
     3FFE5F00 \ pretty much the start of printable forth dump
     \ 3FFE5F00

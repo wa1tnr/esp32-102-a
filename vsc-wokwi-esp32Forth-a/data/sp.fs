@@ -14,6 +14,50 @@ decimal
 
 : duppp sp@ @ ;
 
+: cranston ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+  ."   WHISKEY BRAVO ONE echo bravo delta romeo "
+;
+
+: nuf 16 0 do cr blink group loop ;
 \ . (print destructively) pops that value and prints it to the console
 
 \ or somesuch. ;)
